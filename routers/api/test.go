@@ -13,6 +13,12 @@ Create date  : 2021/12/13 4:09 下午
 Description  :
 */
 
+// GetTest
+// @Summary test
+// @Description test, return hello
+// @Produce  json
+// @Success 200 {string} string    "ok"
+// @Router /test [get]
 func GetTest(c *gin.Context) {
 	appG := common.Gin{C: c}
 	res := "hello world!"

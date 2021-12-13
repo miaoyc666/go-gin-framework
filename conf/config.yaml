@@ -6,5 +6,5 @@ server.addr: :8074
 server.readTimeout: 60
 # write timeout
 server.writeTimeout: 60
-# swagger switch: on or off
-server.swagger: on
+# swagger switch: true or false
+server.swagger: true

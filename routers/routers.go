@@ -22,14 +22,11 @@ func InitRouter() *gin.Engine {
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
 
-	docs.SwaggerInfo.BasePath = "/api/v1"
-
 	apiV1 := r.Group("/api/v1")
-	{
-		apiV1.GET("/test", v1.GetTest)
-	}
+	apiV1.GET("/test", v1.GetTest)
 	if config.GetBool("server.swagger") {
-		apiV1.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+		docs.SwaggerInfo.BasePath = "/"
+		r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	}
 	return r
 }

@@ -18,7 +18,7 @@ Description  :
 // @Description test, return hello
 // @Produce  json
 // @Success 200 {string} string    "ok"
-// @Router /test [get]
+// @Router /api/v1/test [get]
 func GetTest(c *gin.Context) {
 	appG := common.Gin{C: c}
 	res := "hello world!"

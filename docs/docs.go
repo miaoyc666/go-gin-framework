@@ -23,7 +23,7 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/test": {
+        "/api/v1/test": {
             "get": {
                 "description": "test, return hello",
                 "produces": [

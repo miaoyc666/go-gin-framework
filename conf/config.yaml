@@ -1,0 +1,10 @@
+# runMode: debug or release
+server.runMode: debug
+# server addr
+server.addr: :8074
+# read timeout
+server.readTimeout: 60
+# write timeout
+server.writeTimeout: 60
+# swagger switch: on or off
+server.swagger: on

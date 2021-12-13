@@ -1,4 +1,8 @@
+# ide
+.idea/
+
 # Binaries for programs and plugins
+simple-go-gin-example
 *.exe
 *.exe~
 *.dll

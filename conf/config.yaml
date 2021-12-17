@@ -1,10 +1,6 @@
-# runMode: debug or release
-server.runMode: debug
-# server addr
-server.addr: :8074
-# read timeout
-server.readTimeout: 60
-# write timeout
-server.writeTimeout: 60
-# swagger switch: true or false
-server.swagger: true
+server:
+  runMode: debug      # runMode: debug or release
+  addr: :8074         # server addr
+  readTimeout: 60     # read timeout
+  writeTimeout: 60    # write timeout
+  swagger: true       # swagger switch: true or false

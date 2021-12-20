@@ -14,8 +14,6 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	config "github.com/spf13/viper"
-
 	"simple-go-gin-example/internal/pkg/setting"
 	"simple-go-gin-example/routers"
 )
@@ -25,21 +23,12 @@ func init() {
 }
 
 func main() {
-	// init config
-	config.SetConfigType("yaml")
-	config.SetConfigFile("./conf/config.yaml")
-	err := config.ReadInConfig()
-	if err != nil {
-		log.Printf("read config is failed err: %s", err)
-	}
-
 	// init gin server
-	gin.SetMode(config.GetString("server.runMode"))
-	log.Printf(config.GetString("server.runMode"))
+	gin.SetMode(setting.GlobalConf.Server.RunMode)
 	routersInit := routers.InitRouter()
-	readTimeout := config.GetDuration("server.readTimeout") * time.Second
-	writeTimeout := config.GetDuration("server.writeTimeout") * time.Second
-	endPoint := fmt.Sprintf(":%d", config.GetInt("server.httpPort"))
+	readTimeout := setting.GlobalConf.Server.ReadTimeout * time.Second
+	writeTimeout := setting.GlobalConf.Server.WriteTimeout * time.Second
+	endPoint := fmt.Sprintf(":%d", setting.GlobalConf.Server.HttpPort)
 	maxHeaderBytes := 1 << 20
 	server := &http.Server{
 		Addr:           endPoint,

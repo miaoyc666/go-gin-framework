@@ -1,9 +1,7 @@
 package setting
 
 import (
-	"gopkg.in/yaml.v3"
-	"io/ioutil"
-	"log"
+	"github.com/spf13/viper"
 	"time"
 )
 
@@ -14,29 +12,36 @@ Create date  : 2021/12/20 5:10 下午
 Description  : 配置信息读取
 */
 
-type Server struct {
-	RunMode      string				`yaml:"RunMode"`
-	ServerAddr   string
-	ReadTimeout  time.Duration
-	WriteTimeout time.Duration
-	Swagger      bool
+type YamlConfig struct {
+	Server Server `yaml:"server"`
 }
 
-var ServerSetting = &Server{}
+type Server struct {
+	RunMode      string        `yaml:"runMode"`
+	HttpPort     int32         `yaml:"httpPort"`
+	ReadTimeout  time.Duration `yaml:"readTimeout"`
+	WriteTimeout time.Duration `yaml:"writeTimeout"`
+	Swagger      bool          `yaml:"swagger"`
+}
+
+var (
+	GlobalConf YamlConfig
+)
+
+func getConf() {
+	vip := viper.New()
+	vip.SetConfigType("yaml")
+	vip.SetConfigFile("conf/config.yaml")
+	if err := vip.ReadInConfig(); err != nil {
+		panic(err)
+	}
+	err := vip.Unmarshal(&GlobalConf)
+	if err != nil {
+		panic(err)
+	}
+}
 
 // Setup initialize the configuration instance
 func Setup() {
-	yamlFile, err := ioutil.ReadFile("conf/config.yaml")
-	if err != nil {
-		log.Printf("read config is failed err: %s", err)
-	}
-	mapTo(yamlFile, ServerSetting)
-}
-
-// mapTo map section
-func mapTo(fileStream []byte, v interface{}) {
-	err := yaml.Unmarshal(fileStream, v)
-	if err != nil {
-		log.Fatalf("cannot unmarshal data: %v", err)
-	}
+	getConf()
 }

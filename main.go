@@ -8,6 +8,7 @@ Description  :
 */
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -15,8 +16,13 @@ import (
 	"github.com/gin-gonic/gin"
 	config "github.com/spf13/viper"
 
+	"simple-go-gin-example/internal/pkg/setting"
 	"simple-go-gin-example/routers"
 )
+
+func init() {
+	setting.Setup()
+}
 
 func main() {
 	// init config
@@ -33,7 +39,7 @@ func main() {
 	routersInit := routers.InitRouter()
 	readTimeout := config.GetDuration("server.readTimeout") * time.Second
 	writeTimeout := config.GetDuration("server.writeTimeout") * time.Second
-	endPoint := config.GetString("server.addr")
+	endPoint := fmt.Sprintf(":%d", config.GetInt("server.httpPort"))
 	maxHeaderBytes := 1 << 20
 	server := &http.Server{
 		Addr:           endPoint,

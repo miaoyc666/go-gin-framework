@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"simple-go-gin-example/common"
+	"simple-go-gin-example/internal/app"
 )
 
 /*
@@ -20,7 +21,7 @@ Description  :
 // @Success 200 {string} string    "ok"
 // @Router /api/v1/test [get]
 func GetTest(c *gin.Context) {
-	appG := common.Gin{C: c}
+	appG := app.Gin{C: c}
 	res := "hello world!"
 	appG.Response(http.StatusOK, common.SUCCESS, res)
 }

@@ -1,7 +1,8 @@
-package common
+package app
 
 import (
 	"github.com/gin-gonic/gin"
+	"simple-go-gin-example/common"
 )
 
 /*
@@ -25,7 +26,7 @@ type Response struct {
 func (g *Gin) Response(httpCode, errCode int, data interface{}) {
 	g.C.JSON(httpCode, Response{
 		Code: errCode,
-		Msg:  GetMsg(errCode),
+		Msg:  common.GetMsg(errCode),
 		Data: data,
 	})
 	return

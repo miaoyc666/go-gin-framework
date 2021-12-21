@@ -2,7 +2,6 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	config "github.com/spf13/viper"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"simple-go-gin-example/docs"
@@ -24,9 +23,7 @@ func InitRouter() *gin.Engine {
 
 	apiV1 := r.Group("/api/v1")
 	apiV1.GET("/test", v1.GetTest)
-	if config.GetBool("server.swagger") {
-		docs.SwaggerInfo.BasePath = "/"
-		r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-	}
+	docs.SwaggerInfo.BasePath = "/"
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	return r
 }

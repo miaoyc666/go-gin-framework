@@ -9,7 +9,7 @@ run:
 	./simple-go-gin-example
 
 vet:
-	go vet .
+	go vet ./...; true
 
 fmt:
 	gofmt -w .

@@ -23,6 +23,23 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/v1/health": {
+            "get": {
+                "description": "API接口健康检查，Get请求",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "健康检查",
+                "responses": {
+                    "10000": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/test": {
             "get": {
                 "description": "test, return hello",
@@ -30,6 +47,15 @@ var doc = `{
                     "application/json"
                 ],
                 "summary": "test",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "apikey",
+                        "name": "apikey",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "ok",

@@ -9,17 +9,18 @@ Description  :
 
 import (
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
-	"time"
-
-	"github.com/gin-gonic/gin"
+	"simple-go-gin-example/internal/logger"
 	"simple-go-gin-example/internal/pkg/setting"
 	"simple-go-gin-example/routers"
+	"time"
 )
 
 func init() {
 	setting.Setup()
+	logger.Setup()
 }
 
 func main() {

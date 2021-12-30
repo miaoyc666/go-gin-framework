@@ -13,10 +13,9 @@ Create date  : 2021/12/13 4:09 下午
 Description  :
 */
 
-
 const (
-	_PARAM      = "param"
-	_APIKEY     = "apikey"
+	_PARAM  = "param"
+	_APIKEY = "apikey"
 )
 
 // HealthCheck

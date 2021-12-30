@@ -3,3 +3,7 @@ server:
   httpPort: 8074      # server port
   readTimeout: 60     # read timeout
   writeTimeout: 60    # write timeout
+log:
+  logPath: /var/log/compromise_service/run.log    # log path
+  logLevel: debug                                 # log level: panic, fatal, error, warn/warning, info, debug, trace
+

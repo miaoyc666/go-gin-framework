@@ -15,6 +15,7 @@ Description  : 配置信息读取
 
 type YamlConfig struct {
 	Server Server `yaml:"server"`
+	Log    Log    `yaml:"log"`
 }
 
 type Server struct {
@@ -23,6 +24,11 @@ type Server struct {
 	ReadTimeout  time.Duration `yaml:"readTimeout"`
 	WriteTimeout time.Duration `yaml:"writeTimeout"`
 	Swagger      bool          `yaml:"swagger"`
+}
+
+type Log struct {
+	LogPath  string `yaml:"logPath"`
+	LogLevel string `yaml:"logLevel"`
 }
 
 var (

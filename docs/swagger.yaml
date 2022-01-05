@@ -31,6 +31,8 @@ paths:
       summary: 健康检查
   /api/v1/post_test:
     post:
+      consumes:
+      - application/json
       description: test, return hello
       parameters:
       - description: apikey

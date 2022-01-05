@@ -45,6 +45,7 @@ func GetTest(c *gin.Context) {
 // PostTest
 // @Summary test
 // @Description test, return hello
+// @accept json
 // @Produce json
 // @Success 200 {string} string "ok"
 // @Router /api/v1/post_test [post]

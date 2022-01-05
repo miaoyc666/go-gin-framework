@@ -69,6 +69,9 @@ var doc = `{
         "/api/v1/post_test": {
             "post": {
                 "description": "test, return hello",
+                "consumes": [
+                    "application/json"
+                ],
                 "produces": [
                     "application/json"
                 ],

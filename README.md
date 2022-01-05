@@ -8,3 +8,6 @@
 1. 安装swag（安装方法略）
 2. 使用特定格式添加接口函数注释，注释格式参考[go-gin-example](https://github.com/eddycjy/go-gin-example)
 3. swag init
+
+##### 接口示例
+http://myc.ink:8074/swagger/index.html

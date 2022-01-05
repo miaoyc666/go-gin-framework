@@ -49,9 +49,12 @@ func GetTest(c *gin.Context) {
 // @Success 200 {string} string "ok"
 // @Router /api/v1/post_test [post]
 // @Param apikey body string true "apikey"
+// @Param param body string true "param"
 func PostTest(c *gin.Context) {
+	refApikey := c.GetString(_APIKEY)
+	refParam := c.GetString(_PARAM)
 	appG := app.Gin{C: c}
-	appG.DataResponse(map[string]interface{}{"hello": "world"})
+	appG.DataResponse(map[string]interface{}{refApikey: refParam})
 }
 
 func AuthMiddleware(c *gin.Context) {

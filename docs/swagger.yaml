@@ -39,6 +39,12 @@ paths:
         required: true
         schema:
           type: string
+      - description: param
+        in: body
+        name: param
+        required: true
+        schema:
+          type: string
       produces:
       - application/json
       responses:

@@ -35,9 +35,21 @@ func HealthCheck(c *gin.Context) {
 // @Description test, return hello
 // @Produce json
 // @Success 200 {string} string "ok"
-// @Router /api/v1/test [get]
+// @Router /api/v1/get_test [get]
 // @Param apikey query string true "apikey"
 func GetTest(c *gin.Context) {
+	appG := app.Gin{C: c}
+	appG.DataResponse(map[string]interface{}{"hello": "world"})
+}
+
+// PostTest
+// @Summary test
+// @Description test, return hello
+// @Produce json
+// @Success 200 {string} string "ok"
+// @Router /api/v1/post_test [post]
+// @Param apikey body string true "apikey"
+func PostTest(c *gin.Context) {
 	appG := app.Gin{C: c}
 	appG.DataResponse(map[string]interface{}{"hello": "world"})
 }

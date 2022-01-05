@@ -23,6 +23,32 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/v1/get_test": {
+            "get": {
+                "description": "test, return hello",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "test",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "apikey",
+                        "name": "apikey",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/health": {
             "get": {
                 "description": "API接口健康检查，Get请求",
@@ -40,8 +66,8 @@ var doc = `{
                 }
             }
         },
-        "/api/v1/test": {
-            "get": {
+        "/api/v1/post_test": {
+            "post": {
                 "description": "test, return hello",
                 "produces": [
                     "application/json"
@@ -49,11 +75,13 @@ var doc = `{
                 "summary": "test",
                 "parameters": [
                     {
-                        "type": "string",
                         "description": "apikey",
                         "name": "apikey",
-                        "in": "query",
-                        "required": true
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {

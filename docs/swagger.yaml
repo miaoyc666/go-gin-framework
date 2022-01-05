@@ -1,6 +1,23 @@
 info:
   contact: {}
 paths:
+  /api/v1/get_test:
+    get:
+      description: test, return hello
+      parameters:
+      - description: apikey
+        in: query
+        name: apikey
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: test
   /api/v1/health:
     get:
       description: API接口健康检查，Get请求
@@ -12,15 +29,16 @@ paths:
           schema:
             type: string
       summary: 健康检查
-  /api/v1/test:
-    get:
+  /api/v1/post_test:
+    post:
       description: test, return hello
       parameters:
       - description: apikey
-        in: query
+        in: body
         name: apikey
         required: true
-        type: string
+        schema:
+          type: string
       produces:
       - application/json
       responses:

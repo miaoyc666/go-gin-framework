@@ -23,7 +23,8 @@ func InitRouter() *gin.Engine {
 
 	r.GET("/api/v1/health", v1.HealthCheck)
 	apiV1 := r.Group("/api/v1", v1.AuthMiddleware)
-	apiV1.GET("/test", v1.GetTest)
+	apiV1.GET("/get_test", v1.GetTest)
+	apiV1.POST("/post_test", v1.PostTest)
 	docs.SwaggerInfo.BasePath = "/"
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	return r

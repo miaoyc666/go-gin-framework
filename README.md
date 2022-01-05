@@ -2,7 +2,7 @@
 一个简单的gin使用示例，可通过配置文件开启/关闭gin-swagger
 
 ##### 如何运行
-`make help`查看
+`make help`
 
 ##### 如何生成文档
 1. 安装swag（安装方法略）

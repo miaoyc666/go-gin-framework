@@ -1,7 +1,6 @@
 package setting
 
 import (
-	"fmt"
 	"github.com/spf13/viper"
 	"time"
 )
@@ -43,7 +42,6 @@ func getConf() {
 		panic(err)
 	}
 	err := vip.Unmarshal(&GlobalConf)
-	fmt.Println(GlobalConf)
 	if err != nil {
 		panic(err)
 	}

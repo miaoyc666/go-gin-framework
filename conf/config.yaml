@@ -4,6 +4,6 @@ server:
   readTimeout: 60     # read timeout
   writeTimeout: 60    # write timeout
 log:
-  logPath: /var/log/compromise_service/run.log    # log path
-  logLevel: debug                                 # log level: panic, fatal, error, warn/warning, info, debug, trace
+  logPath: /var/log/demo_service/run.log        # log path
+  logLevel: debug                               # log level: panic, fatal, error, warn/warning, info, debug, trace
 

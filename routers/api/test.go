@@ -89,7 +89,11 @@ func AuthMiddleware(c *gin.Context) {
 	// 3.传参给Context
 	c.Set(_APIKEY, reqParam.Apikey)
 	c.Set(_PARAM, reqParam.Param)
+
+	// c.Next()语句之前的处理为前置拦截
 	c.Next()
+	// c.Next()语句之后的处理为后置拦截
+
 }
 
 // checkApiKey 检查apikey有效性，此处为测试，实际使用添加业务实现即可

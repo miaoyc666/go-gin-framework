@@ -5,7 +5,7 @@
 `make help`
 
 ##### 如何生成文档
-1. 安装swag（安装方法略）
+1. 安装swag：[安装方法](https://github.com/swaggo/swag)
 2. 使用特定格式添加接口函数注释，注释格式参考[go-gin-example](https://github.com/eddycjy/go-gin-example)
 3. swag init
 

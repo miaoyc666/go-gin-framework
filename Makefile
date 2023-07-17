@@ -3,7 +3,7 @@
 all: build
 
 build:
-	@go build -v .
+	go build -ldflags "-w -s" -o simple-go-gin-example main.go
 
 run:
 	./simple-go-gin-example

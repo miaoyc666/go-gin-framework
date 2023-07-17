@@ -19,7 +19,8 @@ import (
 )
 
 func init() {
-	setting.Setup()
+	dao.
+		setting.Setup()
 	logger.Setup()
 }
 

@@ -4,17 +4,20 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"net/http"
+	"time"
+
+	"github.com/gin-gonic/gin"
+
 	"simple-go-gin-example/internal/app"
 	"simple-go-gin-example/internal/logger"
-	"time"
 )
 
 /*
 File name    : test.go
 Author       : miaoyc
-Create date  : 2021/12/13 4:09 下午
+Create time  : 2021/12/13 16:09
+Update time  : 2023/7/17 20:12
 Description  :
 */
 
@@ -59,6 +62,8 @@ func GetTest(c *gin.Context) {
 func PostTest(c *gin.Context) {
 	refApikey := c.GetString(_APIKEY)
 	refParam := c.GetString(_PARAM)
+
+	logger.Info("post test")
 	appG := app.Gin{C: c}
 	appG.DataResponse(map[string]interface{}{refApikey: refParam})
 }

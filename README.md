@@ -10,4 +10,7 @@
 3. swag init
 
 ##### 接口示例
-http://myc.ink:8074/swagger/index.html
+```bash 
+# 启动服务后访问以下地址
+http://127.0.0.1:8074/swagger/index.html
+```

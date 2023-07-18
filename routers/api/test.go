@@ -64,6 +64,7 @@ func PostTest(c *gin.Context) {
 	refParam := c.GetString(_PARAM)
 
 	logger.Info("post test")
+	// c.Request.Header.Get("product-serial")
 	appG := app.Gin{C: c}
 	appG.DataResponse(map[string]interface{}{refApikey: refParam})
 }

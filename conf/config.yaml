@@ -2,8 +2,16 @@ server:
   runMode: debug      # runMode: debug or release
   httpPort: 8074      # server port
   readTimeout: 60     # read timeout
-  writeTimeout: 60    # write timeout
+  writeTimeout: 61    # write timeout
 log:
   logPath: /var/log/demo_service/run.log        # log path
   logLevel: debug                               # log level: panic, fatal, error, warn/warning, info, debug, trace
+database:
+  dbType: "None"
+  host: "xxx"
+  port: "3306"
+  user: "xxx"
+  password: "xxx"
+  db: "xxx"
+  maxConnections: "20"
 

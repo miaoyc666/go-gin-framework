@@ -18,16 +18,16 @@ import (
 )
 
 var (
-	DBClient *gorm.DB
+	MysqlClient *gorm.DB
 )
 
-func InitMysqlConnection(host, port, user, password, dbname string, connections int) error {
+func InitMysqlConnection(host, port, user, password, dbname string, connections int) (err error) {
 	// gorm 连接mysql的数据库
-	DBClient, err := getMysqlClient(host, port, user, password, dbname) // 连接本地db
+	MysqlClient, err = getMysqlClient(host, port, user, password, dbname) // 连接本地db
 	if err != nil {
 		return err
 	}
-	sqlDB, err := DBClient.DB()
+	sqlDB, err := MysqlClient.DB()
 	if err != nil {
 		return err
 	}

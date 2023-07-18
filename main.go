@@ -9,19 +9,36 @@ Description  :
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
+	"simple-go-gin-example/dao"
+	"simple-go-gin-example/dto"
+	"time"
+
+	"github.com/gin-gonic/gin"
+
 	"simple-go-gin-example/internal/logger"
 	"simple-go-gin-example/internal/pkg/setting"
 	"simple-go-gin-example/routers"
-	"time"
 )
 
 func init() {
-	dao.
-		setting.Setup()
+	// init setting, logger
+	setting.Setup()
 	logger.Setup()
+
+	// init dto and dao handler
+	fmt.Println(setting.GlobalConf.Database.DbType)
+	if setting.GlobalConf.Database.DbType == "None" {
+		return
+	}
+	if setting.GlobalConf.Database.DbType == "mysql" {
+		dao.Setup(&dao.TestMysqlHandler)
+		dto.Setup(&dto.TestMysqlHandler)
+	}
+	// init db and auto migrate
+	dto.InitDBConnections()
+	dto.AutoMigrate()
 }
 
 func main() {

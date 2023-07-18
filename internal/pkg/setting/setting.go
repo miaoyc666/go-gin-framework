@@ -1,6 +1,7 @@
 package setting
 
 import (
+	"fmt"
 	"github.com/spf13/viper"
 	"time"
 )
@@ -13,8 +14,9 @@ Description  : 配置信息读取
 */
 
 type YamlConfig struct {
-	Server Server `yaml:"server"`
-	Log    Log    `yaml:"log"`
+	Server   Server   `yaml:"server"`
+	Log      Log      `yaml:"log"`
+	Database Database `yaml:"database"`
 }
 
 type Server struct {
@@ -23,6 +25,16 @@ type Server struct {
 	ReadTimeout  time.Duration `yaml:"readTimeout"`
 	WriteTimeout time.Duration `yaml:"writeTimeout"`
 	Swagger      bool          `yaml:"swagger"`
+}
+
+type Database struct {
+	DbType         string `yaml:"dbType"`
+	Host           string `yaml:"host"`
+	Port           string `yaml:"httpPort"`
+	User           string `yaml:"user"`
+	Password       string `yaml:"password"`
+	Db             string `yaml:"db"`
+	MaxConnections int    `yaml:"maxConnections"`
 }
 
 type Log struct {
@@ -45,6 +57,7 @@ func getConf() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println(GlobalConf)
 }
 
 // Setup initialize the configuration instance

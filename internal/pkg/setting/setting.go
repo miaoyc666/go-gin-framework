@@ -1,7 +1,6 @@
 package setting
 
 import (
-	"fmt"
 	"github.com/spf13/viper"
 	"time"
 )
@@ -46,10 +45,10 @@ var (
 	GlobalConf YamlConfig
 )
 
-func getConf() {
+func getConf(configFile string) {
 	vip := viper.New()
 	vip.SetConfigType("yaml")
-	vip.SetConfigFile("conf/config.yaml")
+	vip.SetConfigFile(configFile)
 	if err := vip.ReadInConfig(); err != nil {
 		panic(err)
 	}
@@ -57,10 +56,9 @@ func getConf() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(GlobalConf)
 }
 
 // Setup initialize the configuration instance
-func Setup() {
-	getConf()
+func Setup(configFile string) {
+	getConf(configFile)
 }

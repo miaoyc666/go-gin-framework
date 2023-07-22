@@ -8,6 +8,7 @@ Description  :
 */
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"net/http"
@@ -23,12 +24,18 @@ import (
 )
 
 func init() {
+	var configFilePath string
+	flag.StringVar(&configFilePath, "c", "", "config file path")
+	flag.Parse()
+	if configFilePath == "" {
+		configFilePath = "./conf/config.yaml"
+	}
+
 	// init setting, logger
-	setting.Setup()
+	setting.Setup(configFilePath)
 	logger.Setup()
 
 	// init dto and dao handler
-	fmt.Println(setting.GlobalConf.Database.DbType)
 	if setting.GlobalConf.Database.DbType == "None" {
 		return
 	}

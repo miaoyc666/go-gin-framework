@@ -6,7 +6,7 @@ build:
 	go build -ldflags "-w -s" -o simple-go-gin-example main.go
 
 run:
-	./simple-go-gin-example
+	./simple-go-gin-example -c conf/config.yaml
 
 vet:
 	go vet ./...; true

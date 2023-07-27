@@ -1,4 +1,4 @@
-# simple-go-gin-example
+# go-gin-framework
 一个简单的gin使用示例，可通过配置文件开启/关闭gin-swagger
 
 ##### 如何运行
